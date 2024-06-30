@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import React from "react";
+
+// ERROR 404 PAGE
+import Error from './Error'
+
+// OTP
+import OTP from './OTP';
+
+// SIGN UP
+import SignUp from './SignUp';
+
+// Home Page
+import Home from './Home';
+
+// Account Page
+import Account from './Account'
+
+// Create Post Page
+import Create_Post from './CreatePost'
+
+// Create Blog Detail Page
+import Blog_Detail from './BlogDetail'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+    <BrowserRouter>
+      <Routes>
+        {/* OTP Practice */}
+        <Route path="signup" element={<SignUp/>} />
+        <Route path="/signin" element={<OTP/>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/user_account/:username" element={<Account/>} />
+        <Route path="/create_post" element={<Create_Post/>} />
+        <Route path="/blog_detail/:id" element={<Blog_Detail/>} />
+        <Route path="*" element={<Error/>} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

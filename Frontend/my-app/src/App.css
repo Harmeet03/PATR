@@ -1,38 +1,229 @@
-.App {
+body{
+  background-color: white;
+}
+
+/* SIGN IN/UP PAGE CSS */
+
+form{
   text-align: center;
+  margin: auto;
+  width: 300px;
+  padding: 40px 40px;
+  margin-top: 50px;
+  background-color: whitesmoke;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form > input{
+  border: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form > input, form > button{
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* NAVBAR CSS */
+nav{
+  position: fixed;
+  top: 0;
   display: flex;
-  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
+  background-color: black;
+  color: rgb(153, 255, 0);
+}
+
+nav > div > h1{
+  font-size: 40px;
+}
+
+nav > .list > #list{
+  display: flex;
+  text-align: center;
+  gap: 20px;
+}
+
+nav > .list > #list > div{
+  display: flex;
+  gap: 20px;
+}
+
+nav > .list > #list a{
+  color: rgb(153, 255, 0);
+  text-decoration: none;
+}
+
+nav > .list > #list a:hover{
+  cursor: pointer;
+}
+
+nav > .list > .toggle{
+  display: none;
+}
+
+@media only screen and (max-width: 509px){
+  nav > .list > .toggle{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0px 40px;
+  }
+
+  nav > .list > #list{
+    display: none;
+    flex-direction: column;
+    padding: 40px 0px;
+  }
+
+  nav > .list > #list > div{
+    flex-direction: column;
+  }
+}
+
+/* BLOG HOME PAGE CSS */
+header{
+  display: flex;
+  margin: auto;
+  width: 650px;
+  justify-content: left;
+  align-items: center;
+  padding: 140px 0px 0px;
+}
+
+.content{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 650px;
+  margin: auto;
+}
+
+.content > .box{
+  border: solid 1px;
+  padding: 10px 25px;
+}
+
+.content > .box .thumbnail{
+  height: 150px;
+  width: 158px;
+}
+
+.content > .box h3{
+  color: rgb(153, 255, 0);
+}
+
+.content > .box b{
+  color: black;
+}
+
+.content > .box p{
+  color: rgb(153, 255, 0);
+}
+
+@media only screen and (max-width: 716px){
+  header{
+    width: 400px;
+  }
+
+  .content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 425px;
+  }
+}
+
+@media only screen and (max-width: 509px){
+  header{
+    width: 293px;
+  }
+
+  .content{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 250px;
+  }
+}
+
+/* CREATE POST PAGE CSS */
+.post{
+  margin-top: 140px;
+}
+
+.post > input, .post > select{
+  height: 25px;
+  width: 250px;
+}
+
+.post > .desc{
+  height: 200px;
+  width: 275px;
+  resize: none;
+  border: none;
+}
+
+.post > .option{
+  height: 50px;
+  width: 275px;
+  border: none;
+}
+
+/* ACCOUNT PAGE CSS */
+.account{
+  text-align: center;
+  margin-top: 200px;
+}
+
+.account > img{
+  width: 200px;
+  height: 200px;
+  border: solid;
+  border-radius: 100px;
+}
+
+.myBlog{
+  padding: 100px 40px 20px;
+}
+
+.myBlog > div{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.myBlog > div > button{
+  height: 40px;
+  width: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* BLOG DETAIL PAGE CSS */
+
+.blogDetail{
+  margin: auto;
+  margin-top: 140px;
+  padding: 10px 20px;
+  width: 800px;
+}
+
+.blogDetail > h1{
+  font-size: 40px;
+}
+
+.blogDetail > h2{
+  color: rgb(153, 255, 0);
+}
+
+.blogDetail > p > b{
+  color: black;
+}
+
+.blogDetail > p{
+  color: rgb(153, 255, 0);
+}
+
+.blogDetail > .p{
+  margin-top: 40px;
+  line-height: 35px;
+  color: black;
 }
