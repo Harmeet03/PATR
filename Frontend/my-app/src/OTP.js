@@ -16,7 +16,7 @@ const OTP = () => {
     
     const handleSendOTP = async () => {
       try {
-        const response = await fetch('http://localhost:4040/otp', {
+        const response = await fetch('https://patr-202b.onrender.com/otp', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ const OTP = () => {
 
     const handleVerifyOTP = async () => {
       try {
-        const response = await fetch('http://localhost:4040/verify', {
+        const response = await fetch('https://patr-202b.onrender.com/verify', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

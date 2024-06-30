@@ -15,7 +15,7 @@ const Create_Post = () => {
     const handlePost = async (event) => {
          event.preventDefault();
         try{
-            const response = await fetch(`http://localhost:4040/postContent`, {
+            const response = await fetch(`https://patr-202b.onrender.com/postContent`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

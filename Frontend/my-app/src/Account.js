@@ -16,7 +16,7 @@ const Account = () => {
 
     const fetchUserData = async (username) => {
         try{
-            const response = await fetch(`http://localhost:4040/otp/${username}`);
+            const response = await fetch(`https://patr-202b.onrender.com//otp/${username}`);
             if(response.ok){
                 const userData = await response.json();
                 setData(userData);

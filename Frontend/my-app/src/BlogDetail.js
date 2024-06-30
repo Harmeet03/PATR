@@ -15,7 +15,7 @@ const Blog_Detail = () => {
 
     const fetchBlogDetail = async () => {
         try{
-            const response = await fetch(`http://localhost:4040/postContent/${id}`);
+            const response = await fetch(`https://patr-202b.onrender.com/postContent/${id}`);
             if(response.ok){
                 const blogDetail = await response.json();
                 setBlog(blogDetail);

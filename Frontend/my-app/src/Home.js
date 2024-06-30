@@ -14,7 +14,7 @@ const Home = () => {
 
     const fetchContent = async () => {
         try{
-            const response = await fetch(`http://localhost:4040/postContent`);
+            const response = await fetch(`https://patr-202b.onrender.com/postContent`);
             if(response.ok){
                 const blog_content = await response.json();
                 setContent(blog_content);
