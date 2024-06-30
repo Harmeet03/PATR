@@ -30,7 +30,7 @@ const Home = () => {
     }
 
     if(!contents){
-        return <h2> Loading... </h2>
+        return <h1 style={{textAlign: 'center'}}> Loading... </h1>
     }
         
     return (

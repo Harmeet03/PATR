@@ -31,7 +31,7 @@ const Blog_Detail = () => {
     }
 
     if (!blog) {
-        return <div>Loading...</div>;
+        return <h1 style={{textAlign: 'center'}}> Loading... </h1>
     }
 
     return(
