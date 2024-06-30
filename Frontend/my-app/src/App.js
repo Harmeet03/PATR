@@ -3,25 +3,25 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 
 // ERROR 404 PAGE
-import Error from './Error'
+import Error from './Error.js'
 
 // OTP
-import OTP from './OTP';
+import OTP from './OTP.js';
 
 // SIGN UP
-import SignUp from './SignUp';
+import SignUp from './SignUp.js';
 
 // Home Page
-import Home from './Home';
+import Home from './Home.js';
 
 // Account Page
-import Account from './Account'
+import Account from './Account.js'
 
 // Create Post Page
-import Create_Post from './CreatePost'
+import Create_Post from './CreatePost.js'
 
 // Create Blog Detail Page
-import Blog_Detail from './BlogDetail'
+import Blog_Detail from './BlogDetail.js'
 
 function App() {
   return(
