@@ -19,8 +19,8 @@ app.use(cors(connection));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
+const BASE_URL = process.env.BASE_URL;
+app.listen(BASE_URL, () => {
     console.log("Server is ON");
 });
 
