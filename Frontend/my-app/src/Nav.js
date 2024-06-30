@@ -28,6 +28,7 @@ const Nav = ({username}) => {
                         list.style.display = 'none';
                     }
                     else{
+                        list.style.display = 'flex';
                     }
                 }}>
                     <span>____</span>
