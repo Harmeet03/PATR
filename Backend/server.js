@@ -9,7 +9,7 @@ const cors = require("cors");
 database();
 
 const connection = {
-    origin: 'http://localhost:3000',
+    origin: 'https://patr.netlify.app',
     credentials: true
 };
 
