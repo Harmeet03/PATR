@@ -17,8 +17,10 @@ const Create_Post = () => {
         try{
             const response = await fetch(`https://patr-202b.onrender.com/postContent`, {
                 method: 'POST',
+                mode: "cors",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({ options, heading, content, username }),
             });
