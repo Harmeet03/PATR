@@ -16,6 +16,31 @@ const connection = {
 const app = express();
 app.use(cors(connection));
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try{
+      const request = await fetch('https://patr-202b.onrender.com', {
+          method: "POST",
+          mode: "cors",
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              // 'Access-Control-Allow-Origin': 'http://127.0.0.1:5501'
+              'Access-Control-Allow-Origin': 'https://patr.netlify.app'
+          }
+      });
+      if(request.ok){
+          console.log("Server Connected!");
+      }
+      else{
+          console.log("Request Error!");
+      }
+  }
+  catch(error){
+      console.log(`Error occurred: ${error}`);
+  }
+};
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
