@@ -145,7 +145,7 @@ const OTP = () => {
               <h2> Sign In: </h2>
               <input id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input><br></br><br></br>
               <input id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input><br></br><br></br>
-              <a href="/signup"> Sign Up? </a>
+              <a onClick={() => {navigate(`/signup`)}}> Sign Up? </a>
               <br></br><br></br><br></br>
               <button id="button" type="submit"> Proceed </button>
               <p id="user_error" style={{display: "none"}}> Invalid Email or Username. </p>
