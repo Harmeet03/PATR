@@ -67,7 +67,7 @@ const OTP = () => {
               <input required id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input><br></br><br></br>
               <input required id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input><br></br><br></br>
               <input required id="name" type="text" name="name" placeholder="Enter Name" onChange={(event) => setName(event.target.value)}></input><br></br><br></br>
-              <a href="/signin"> Sign In? </a>
+              <a style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => {navigate(`/signin`)}}> Sign In? </a>
               <br></br><br></br><br></br>
               <button id="button" type="submit"> Sign Up </button>
               <p id="created" style={{display: "none"}}> Account Created. </p>
