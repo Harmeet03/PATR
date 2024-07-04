@@ -48,8 +48,8 @@ app.get('/', (req, res) => {
     res.send("Server is ON");
 });
 
-const BASE_URL = process.env.BASE_URL || 4040;
-app.listen(BASE_URL, () => {
+const PORT = process.env.PORT || 4040;
+app.listen(PORT, () => {
     console.log("Server is ON");
 });
 
