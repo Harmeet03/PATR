@@ -46,7 +46,7 @@ const Nav = ({username}) => {
                             </div>
                         ) 
                         : (
-                            <a href='/signin'> Sign In </a>
+                            <a onClick={() => {Link(`/signin`)}}> Sign In </a>
                         )
                     }
                 </div>
