@@ -13,6 +13,9 @@ const connection = {
     credentials: true
 };
 
+
+console.log('SMTP_HOST:', process.env.EMAIL_USER);
+
 const app = express();
 app.use(cors(connection));
 
