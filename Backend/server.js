@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
               // 'Access-Control-Allow-Origin': 'http://127.0.0.1:5501'
-              'Access-Control-Allow-Origin': 'https://patr.netlify.app/'
+              'Access-Control-Allow-Origin': 'https://patr.netlify.app'
           }
       });
       if(request.ok){
@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL || 4040;
 app.listen(BASE_URL, () => {
     console.log("Server is ON");
 });
