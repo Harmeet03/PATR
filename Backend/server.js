@@ -88,10 +88,7 @@ function generateOTP(){
 async function sendOTP(email, otp){
     try{
         const transporter = nodemailer.createTransport({
-          service: 'Outlook',
-          host: 'smpt-mail.outlook.com',
-          port: 587, // Use port 587 for TLS or 465 for SSL
-          secure: false,  // true for 465, false for other ports
+          service: 'Gmail',
           auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
