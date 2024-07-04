@@ -44,13 +44,13 @@ const handleSubmit = async (e) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+    res.send("Server is ON");
+});
+
 const BASE_URL = process.env.BASE_URL || 4040;
 app.listen(BASE_URL, () => {
     console.log("Server is ON");
-});
-
-app.get('/', (req, res) => {
-    res.send("Server is ON");
 });
 
 // -------- THIS IS FOR SIGN UP --------
