@@ -25,7 +25,6 @@ const handleSubmit = async (e) => {
           headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
-              // 'Access-Control-Allow-Origin': 'http://127.0.0.1:5501'
               'Access-Control-Allow-Origin': 'https://patr.netlify.app'
           }
       });
