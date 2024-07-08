@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 const Home = () => {
     let username = localStorage.getItem('Username');
     const [contents, setContent] = useState([]);
+    const [loading, setLoading] = useState([]);
 
     useEffect(() => {
         fetchContent();
@@ -30,7 +31,7 @@ const Home = () => {
     }
 
     if(!contents){
-        return <h1 style={{textAlign: 'center'}}> Loading... </h1>
+        return setLoading(true);
     }
         
     return (
@@ -47,22 +48,29 @@ const Home = () => {
         </Helmet>
         <Nav/>
         <header>
-            <h1> Welcome, {(username ? <span>{username}</span> : <span> Sir </span>)} </h1>
+            <h1> Welcome, {username ? <span>{username}</span> : <span> Sir </span>} </h1>
         </header>
-        <div className="content">
-            {
-                contents.map((content) => (
-                    <div className="box" key={content._id}>
-                        <Link className="link" style={{textDecoration: 'none', color: 'black'}} to={`/blog_detail/${content._id}`}>
-                            <img src="#" className="thumbnail"></img>
-                            <h3> {content.options} </h3>
-                            <h2> {content.heading} </h2>
-                            <p> <b>From - </b> {content.username} </p>
-                        </Link>
-                    </div>
-                ))
-            }
-        </div>
+        {
+            setLoading(true) ? (
+                <h1 style={{textAlign: 'center'}}> Loading... </h1>
+            )
+            : (
+                <div className="content">
+                    {
+                        contents.map((content) => (
+                            <div className="box" key={content._id}>
+                                <Link className="link" style={{textDecoration: 'none', color: 'black'}} to={`/blog_detail/${content._id}`}>
+                                    <img src="#" className="thumbnail"></img>
+                                    <h3> {content.options} </h3>
+                                    <h2> {content.heading} </h2>
+                                    <p> <b>From - </b> {content.username} </p>
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            ) 
+        }
         </>
     );
 }
