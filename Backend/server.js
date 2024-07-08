@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 4040;
 app.listen(PORT, () => {
-    console.log("Server is ON");
+    console.log(`Server is ON, and running at PORT: ${PORT}`);
 });
 
 // -------- THIS IS FOR SIGN UP --------
