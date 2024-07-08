@@ -43,13 +43,13 @@ const handleSubmit = async (e) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send("Server is ON");
-});
-
 const PORT = process.env.PORT || 4040;
 app.listen(PORT, () => {
     console.log(`Server is ON, and running at PORT: ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+    res.send("Server is ON");
 });
 
 // -------- THIS IS FOR SIGN UP --------
