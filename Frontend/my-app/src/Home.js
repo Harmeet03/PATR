@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 const Home = () => {
     let username = localStorage.getItem('Username');
     const [contents, setContent] = useState([]);
-    const [loading, setLoading] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchContent();
@@ -20,13 +20,16 @@ const Home = () => {
                 const blog_content = await response.json();
                 setContent(blog_content);
                 console.log('User name fetch successfully');
+                setLoading(false);
             }
             else{
                 console.log('Failed to get data from 4040 port.');
+                setLoading(false);
             }
         }
         catch(error){
             console.log('Error while fetching from 4040 port.', error);
+            setLoading(false);
         }
     }
 
@@ -51,7 +54,7 @@ const Home = () => {
             <h1> Welcome, {username ? <span>{username}</span> : <span> Sir </span>} </h1>
         </header>
         {
-            setLoading(true) ? (
+            loading ? (
                 <h1 style={{textAlign: 'center'}}> Loading... </h1>
             )
             : (
