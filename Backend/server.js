@@ -87,7 +87,7 @@ function generateOTP(){
 async function sendOTP(email, otp){
     try{
         const transporter = nodemailer.createTransport({
-          service: 'Outlook',
+          host: 'smpt-mail.outlook.com',
           auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
