@@ -103,6 +103,7 @@ async function sendOTP(email, otp){
           // text: ` OTP for PATR is ${otp}. Please don't share it for security reason.`,
           html: `<p> Your OTP for <b style='color: 'rgb(153, 255, 0)''> PATR </b> is <span style='text-decorator: 'underline''> ${otp} </span></p>`
         });
+        // console.log(`OTP sent to ${email}: ${otp}`);
     }
     catch (error) {
         console.error('Error sending OTP:', error);
@@ -159,7 +160,13 @@ app.post('/verify', async (req, res) => {
     const storedOTP = otpMap[email];
     const otpExpiry = otpExpiryMap[email];
 
+    // console.log(`Verifying OTP for ${email}`);
+    // console.log(`Stored OTP: ${storedOTP}`);
+    // console.log(`Received OTP: ${otp}`);
+
     const currentTime = Date.now()
+    // console.log(`OTP Expiry: ${otpExpiry}`);
+    // console.log(`Request Body:`, req.body);
 
     try{
       if (!storedOTP) {
