@@ -99,8 +99,9 @@ async function sendOTP(email, otp){
         await transporter.sendMail({
           from: process.env.EMAIL_USER,
           to: email,
-          subject: 'Your OTP for SignIn',
-          text: `Your OTP for SignIn is ${otp}. Please don't share it for security reason.`
+          subject: 'Your OTP for PATR',
+          // text: ` OTP for PATR is ${otp}. Please don't share it for security reason.`,
+          html: `<p> Your OTP for <b style='color: 'rgb(153, 255, 0)''> PATR </b> is <span style='text-decorator: 'underdline''> ${otp} </span></p>`
         });
         console.log(`OTP sent to ${email}: ${otp}`);
     }
