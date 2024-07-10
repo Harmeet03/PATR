@@ -97,6 +97,7 @@ header{
   gap: 10px;
   width: 650px;
   margin: auto;
+  margin-bottom: 40px;
 }
 
 .content > .box{
