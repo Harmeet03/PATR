@@ -6,7 +6,7 @@ const Footer = () => {
     const Link = useNavigate();
     return(
         <>
-        <footer style={{backgroundColor: 'black', color: 'white'}}>
+        <footer style={{backgroundColor: 'black', color: 'white', margin: 0, padding: '20px 0px', textAlign: 'center'}}>
             <div className="left">
                 <h1 style={{color: 'rgb(153, 255, 0)'}}> PATR </h1>
             </div>
