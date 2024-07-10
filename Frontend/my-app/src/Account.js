@@ -49,7 +49,7 @@ const Account = () => {
             <img src=""></img><br></br>
             <h2> {user.name} </h2>
             <h3> {user.email} </h3><br></br>
-            <a href="/signin" onClick={() => {localStorage.removeItem('Login'); localStorage.removeItem('Username');}}> Sign Out? </a>
+            <a onClick={() => {localStorage.removeItem('Login'); localStorage.removeItem('Username'); Link('/signin')}}> Sign Out? </a>
 
             <div className="myBlog" id="myBlog">
                 <h1> My Blogs: </h1>

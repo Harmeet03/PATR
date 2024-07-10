@@ -101,7 +101,7 @@ async function sendOTP(email, otp){
           to: email,
           subject: 'Your OTP for PATR',
           // text: ` OTP for PATR is ${otp}. Please don't share it for security reason.`,
-          html: `<p> Your OTP for <b style='color: 'rgb(153, 255, 0)''> PATR </b> is <span style='text-decorator: 'underdline''> ${otp} </span></p>`
+          html: `<p> Your OTP for <b style='color: 'rgb(153, 255, 0)''> PATR </b> is <span style='text-decorator: 'underline''> ${otp} </span></p>`
         });
         console.log(`OTP sent to ${email}: ${otp}`);
     }
