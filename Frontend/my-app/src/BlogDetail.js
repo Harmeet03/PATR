@@ -8,6 +8,9 @@ const Blog_Detail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [blog, setBlog] = useState(null);
+    const [storeComments, setStoreComment] = useState([]);
+    const [comments, setComment] = useState('');
+    let username = localStorage.getItem('Username');
 
     useEffect(() => {
         fetchBlogDetail();
@@ -19,6 +22,7 @@ const Blog_Detail = () => {
             if(response.ok){
                 const blogDetail = await response.json();
                 setBlog(blogDetail);
+                setStoreComment(blogDetail.comments || [])
                 console.log('Blog detail fetched successfully.');
             }
             else{
@@ -26,12 +30,37 @@ const Blog_Detail = () => {
             }
         }
         catch(error){
-            console.log('Error while fetching blog detail from 4040 port.', error);
+            console.log('Error while fetching blog detail from server.', error);
+        }
+    }
+
+    const PostBlogComment = async (event) => {
+        event.preventDefault();
+        try{
+            const response = await fetch(`http://localhost:4040/postContent/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ comments, username })
+            });
+
+            if(response.ok){
+                console.log('Blog comments posted successfully.');
+                setComment("");
+                fetchBlogDetail();
+            }
+            else{
+                console.log('Failed to post blog comments from server.');
+            }
+        }
+        catch(error){
+            console.log('Error while posting blog comments from server.', error);
         }
     }
 
     if (!blog) {
-        return <h1 style={{textAlign: 'center'}}> Loading... </h1>
+        return <div>Loading...</div>;
     }
 
     return(
@@ -53,6 +82,28 @@ const Blog_Detail = () => {
             <p> <b>Posted By - </b>{blog.username} </p>
             <p className="p"> {blog.content} </p>
         </div>
+
+        <div className="comments">
+            <h1 style={{borderBottom: '1px solid black', padding: '0px 0px 20px 0px'}}> Comments: </h1>
+            {
+                storeComments.map((comment, index) => (
+                    <div className="content" key={index}>
+                        <div>
+                            <img src="#"></img>
+                        </div>
+                        <div>
+                            <p> <b>From: {comment.username}</b>  </p>
+                            <p> {comment.comment} </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        
+        <form className="addComment" onSubmit={PostBlogComment}>
+            <input required name="comments" type="text" placeholder="Like it? Write a comment to tell them." onChange={(event) => setComment(event.target.value)}></input>
+            <button type="submit"> Post </button>
+        </form>
         </>
     );
 }

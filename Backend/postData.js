@@ -1,4 +1,23 @@
 const mongoose = require("mongoose");
+
+const commentSchema = new mongoose.Schema(
+    {
+        comment: {
+            type: String,
+            required: true
+        },
+
+        username: {
+            type: String,
+            required: true
+        }  
+    },
+    
+    {
+        _id: false
+    }
+);
+
 const postSchema = new mongoose.Schema(
     {
         options: {
@@ -15,6 +34,8 @@ const postSchema = new mongoose.Schema(
             type: String,
             required: true
         }, 
+
+        comments: [commentSchema],
 
         username: {
             type: String,

@@ -234,6 +234,7 @@ app.post('/postContent', async (req, res) => {
       options: req.body.options,
       heading: req.body.heading,
       content: req.body.content,
+      comments: req.body.comments,
       username: req.body.username
     });
 
@@ -283,6 +284,30 @@ app.get('/postContent/:id', async(req, res) => {
   catch(error){
     console.error('Error fetching post:', error);
     res.status(500).json({error: 'Internal server error'});
+  }
+});
+
+// BACKEND FOR POSTING BLOG DETAIL COMMENTS
+
+app.post('/postContent/:id', async(req, res) => {
+  try{
+    const { id } = req.params;
+    const { comments, username } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid ID format' });
+   }
+
+    const postComment = await post.findByIdAndUpdate(
+      id,
+      { $push: { comments: { username, comment: comments } } },
+      { new: true }
+    );
+
+    res.status(200).json({ message: "Blog Comment posted successfully ", postComment});
+  }
+  catch(error){
+    console.log('Error in server: ', error);
   }
 });
 
