@@ -37,7 +37,7 @@ const Blog_Detail = () => {
     const PostBlogComment = async (event) => {
         event.preventDefault();
         try{
-            const response = await fetch(`http://localhost:4040/postContent/${id}`, {
+            const response = await fetch(`https://patr-202b.onrender.com/postContent/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
