@@ -87,7 +87,7 @@ const Blog_Detail = () => {
             <h1 style={{borderBottom: '1px solid black', padding: '0px 0px 20px 0px'}}> Comments: </h1>
             {
                 storeComments.map((comment, index) => (
-                    <div className="content" key={index}>
+                    <div id="content" key={index}>
                         <div>
                             <img src="#"></img>
                         </div>

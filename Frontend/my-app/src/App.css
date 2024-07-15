@@ -97,7 +97,6 @@ header{
   gap: 10px;
   width: 650px;
   margin: auto;
-  margin-bottom: 40px;
 }
 
 .content > .box{
@@ -236,12 +235,13 @@ header{
   width: 800px;
 }
 
-.comments > .content{
-  padding: 0px 80px 20px 80px;
+.comments > #content{
+  padding: 0px 80px 40px 80px;
   display: flex;
+  gap: 10px;
 }
 
-.comments > .content > div > img{
+.comments > #content > div > img{
   border: 1px solid black;
   border-radius: 20px;
   width: 40px;
@@ -262,4 +262,37 @@ header{
 
 .addComment > button{
   border: none;
+}
+
+@media only screen and (max-width: 840px){
+  .blogDetail{
+    width: 600px;
+  }
+
+  .comments{
+    width: 600px;
+  }
+
+  .addComment{
+    width: 467px;
+  }
+}
+
+@media only screen and (max-width: 650px){
+  .blogDetail{
+    width: 400px;
+  }
+
+  .comments{
+    width: 400px;
+  }
+
+  .addComment{
+    width: 400px;
+  }
+
+  .addComment > input{
+    width: 353px;
+    padding: 20px 0px;
+  }
 }
