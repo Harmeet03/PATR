@@ -64,7 +64,7 @@ const Home = () => {
                         contents.map((content) => (
                             <div className="box" key={content._id}>
                                 <Link className="link" style={{textDecoration: 'none', color: 'black'}} to={`/blog_detail/${content._id}`}>
-                                    <img src="#" className="thumbnail"></img>
+                                    <img src={content.image} className="thumbnail"></img>
                                     <h3> {content.options} </h3>
                                     <h2> {content.heading} </h2>
                                     <p> <b>From - </b> {content.username} </p>

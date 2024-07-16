@@ -10,7 +10,20 @@ const Create_Post = () => {
     const [options, setOption] = useState('');
     const [heading, setHeading] = useState('');
     const [content, setContent] = useState('');
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [image, setImage] = useState(null);
+
+    const handleImage = (e) => {
+        //  FOR IMAGE (ENCODING THE IMAGE'S DATA)
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImage(reader.result);
+        }
+    
+        if(file){
+            reader.readAsDataURL(file);
+        }
+    };
 
     const handlePost = async (event) => {
          event.preventDefault();
@@ -22,7 +35,7 @@ const Create_Post = () => {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ options, heading, content, username }),
+                body: JSON.stringify({ options, heading, content, username, image }),
             });
 
             if(response.ok){
@@ -50,13 +63,6 @@ const Create_Post = () => {
         }
     }
 
-    const handleImageChange = (e) => {
-        if(e.target.files && e.target.files[0]){
-            const image = e.target.files[0];
-            setSelectedImage(URL.createObjectURL(image));
-        }
-    };
-
     return(
         <>
         <Helmet>
@@ -72,6 +78,7 @@ const Create_Post = () => {
         <Nav/>
         <form className="post" onSubmit={handlePost}>
             <select className="option" name="options" required onChange={(event) => setOption(event.target.value)}>
+                <option value=''>Select Category</option>
                 <option>Travel</option>
                 <option>Technology</option>
                 <option>Health</option>
@@ -85,7 +92,7 @@ const Create_Post = () => {
             <textarea name="content" type="text" className="desc" placeholder="Start writing your blog here" minLength={100} maxLength={10000} required onChange={(event) => setContent(event.target.value)}></textarea><br></br><br></br>
             <div style={{backgroundColor: 'white'}}>
                 <p>UPLOAD IMAGE FOR THUMBNAIL:</p>
-                <input type="file" accept="image/*" onChange={handleImageChange}/>
+                <input name="image" type="file" accept="image/*" required onChange={handleImage}/>
             </div><br></br>
             <p className="uname"> Username: <span name="username"> {username} </span></p>
             {/* <input type="file"></input> */}

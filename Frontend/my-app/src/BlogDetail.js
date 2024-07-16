@@ -80,6 +80,7 @@ const Blog_Detail = () => {
             <h1> {blog.heading} </h1>
             <h2> {blog.options} </h2>
             <p> <b>Posted By - </b>{blog.username} </p>
+            <img src={blog.image}></img>
             <p className="p"> {blog.content} </p>
         </div>
 

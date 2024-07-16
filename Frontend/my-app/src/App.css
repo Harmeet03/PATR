@@ -228,6 +228,12 @@ header{
   color: black;
 }
 
+.blogDetail > img{
+  border: solid;
+  width: 500px;
+  height: 300px;
+}
+
 .comments{
   margin: auto;
   margin-top: 10px;
@@ -281,6 +287,12 @@ header{
 @media only screen and (max-width: 650px){
   .blogDetail{
     width: 400px;
+  }
+
+  .blogDetail > img{
+    border: solid;
+    width: 350px;
+    height: 250px;
   }
 
   .comments{

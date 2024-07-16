@@ -225,6 +225,7 @@ app.get("/otp/:username", async (req, res) => {
 
 // --------------------------------------
 
+
 // -------- BLOG CREATE POST PAGE BACKEND -------
 
 const post = require("./postData");
@@ -235,13 +236,23 @@ app.post('/postContent', async (req, res) => {
       heading: req.body.heading,
       content: req.body.content,
       comments: req.body.comments,
-      username: req.body.username
+      username: req.body.username,
+      image: req.body.image
     });
+    
+    //  FOR IMAGE (DECOING THE IMAGE'S DATA)
+    const {image} = req.body;
+    if(image){
+      const base64Data = image.split(',')[1];
+      const buffer = Buffer.from(base64Data, 'base64');
+    }
 
     res.status(200).json({ message: "Blog posted successfully", post_blog });
+    console.log('Blog Posted');
   }
   catch(error){
     res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
+    console.log('Blog did not Posted', error);
   }
 });
 
