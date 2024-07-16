@@ -32,6 +32,8 @@ const Create_Post = () => {
                 
                 let failed = document.getElementById('failed');
                 failed.style.display = 'none';
+
+                Link('/');
             }
 
             else{
