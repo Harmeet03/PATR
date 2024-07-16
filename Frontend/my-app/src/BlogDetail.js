@@ -100,10 +100,17 @@ const Blog_Detail = () => {
             }
         </div>
         
-        <form className="addComment" onSubmit={PostBlogComment}>
-            <input required name="comments" type="text" placeholder="Like it? Write a comment to tell them." onChange={(event) => setComment(event.target.value)}></input>
-            <button type="submit"> Post </button>
-        </form>
+        {
+            username != null ? (
+                <form className="addComment" onSubmit={PostBlogComment}>
+                    <input required name="comments" type="text" placeholder="Like it? Write a comment to tell them." onChange={(event) => setComment(event.target.value)}></input>
+                    <button type="submit"> Post </button>
+                </form>
+            ) 
+            : (
+                <p style={{textAlign: 'center', fontSize: '16px'}}> Kindly <span style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => navigate('/signin')}> Sign In </span> to send comments </p>
+            )
+        }
         </>
     );
 }
