@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import './App.css'
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import Nav from './Nav'
+import Nav from './Nav';
+import Loader from './Loader';
 
 const Account = () => {
     const username = localStorage.getItem('Username');
     const [user, setData] = useState('');
+    const Link = useNavigate();
 
     useEffect(() => {
         if(username){
@@ -31,7 +33,17 @@ const Account = () => {
         }
     }
     
-    const Link = useNavigate();
+    if(!user){
+        return (
+            <>
+            <Nav/>
+            <div style={{marginTop: '300px'}}>
+                <Loader/>
+            </div>
+            </>
+        )
+    }
+    
     return(
         <>
         <Helmet>

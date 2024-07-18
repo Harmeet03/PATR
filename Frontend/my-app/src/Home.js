@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Nav from './Nav';
 import Footer from './Footer';
 import { Helmet } from 'react-helmet';
+import Loader from './Loader';
 
 const Home = () => {
     let username = localStorage.getItem('Username');
@@ -20,22 +21,29 @@ const Home = () => {
             if(response.ok){
                 const blog_content = await response.json();
                 setContent(blog_content);
-                console.log('User name fetch successfully');
                 setLoading(false);
+                console.log('User name fetch successfully');
             }
             else{
                 console.log('Failed to get data from 4040 port.');
-                setLoading(false);
             }
         }
         catch(error){
             console.log('Error while fetching from 4040 port.', error);
-            setLoading(false);
+            setLoading(true);
         }
     }
 
-    if(!contents){
-        return setLoading(true);
+    if(loading){
+        return (
+            <>
+            <Nav/>
+            <header>
+                <h1> Welcome, {(username ? <span>{username}</span> : <span> Sir </span>)} </h1>
+            </header>
+            <Loader/>
+            </>
+        )
     }
         
     return (
@@ -54,27 +62,20 @@ const Home = () => {
         <header>
             <h1> Welcome, {username ? <span>{username}</span> : <span> Sir </span>} </h1>
         </header>
-        {
-            loading ? (
-                <h1 style={{textAlign: 'center'}}> Loading... </h1>
-            )
-            : (
-                <div className="content">
-                    {
-                        contents.map((content) => (
-                            <div className="box" key={content._id}>
-                                <Link className="link" style={{textDecoration: 'none', color: 'black'}} to={`/blog_detail/${content._id}`}>
-                                    <img src={content.image} className="thumbnail"></img>
-                                    <h3> {content.options} </h3>
-                                    <h2> {content.heading} </h2>
-                                    <p> <b>From - </b> {content.username} </p>
-                                </Link>
-                            </div>
-                        ))
-                    }
-                </div>
-            ) 
-        }
+        <div className="content">
+            {
+                contents.map((content) => (
+                    <div className="box" key={content._id}>
+                        <Link className="link" style={{textDecoration: 'none', color: 'black'}} to={`/blog_detail/${content._id}`}>
+                            <img src={content.image} className="thumbnail"></img>
+                            <h3> {content.options} </h3>
+                            <h2> {content.heading} </h2>
+                            <p> <b>From - </b> {content.username} </p>
+                        </Link>
+                    </div>
+                ))
+            }
+        </div>
         <Footer/>
         </>
     );

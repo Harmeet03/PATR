@@ -3,6 +3,7 @@ import './App.css'
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import Nav from './Nav';
+import Loader from './Loader';
 
 const Blog_Detail = () => {
     const navigate = useNavigate();
@@ -60,7 +61,14 @@ const Blog_Detail = () => {
     }
 
     if (!blog) {
-        return <div>Loading...</div>;
+        return (
+            <>
+            <Nav/>
+            <div style={{marginTop: '300px'}}>
+                <Loader/>
+            </div>
+            </>
+        )
     }
 
     return(
