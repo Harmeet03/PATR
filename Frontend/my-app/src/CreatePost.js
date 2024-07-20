@@ -77,6 +77,7 @@ const Create_Post = () => {
         </Helmet>
         <Nav/>
         <form className="post" onSubmit={handlePost}>
+            <h2> Create Post </h2>
             <select className="option" name="options" required onChange={(event) => setOption(event.target.value)}>
                 <option value=''>Select Category</option>
                 <option>Travel</option>
@@ -90,7 +91,7 @@ const Create_Post = () => {
             </select><br></br><br></br>
             <input name="heading" type="text" placeholder="Write your blog's heading" minLength={1} maxLength={80} required onChange={(event) => setHeading(event.target.value)}></input><br></br><br></br>
             <textarea name="content" type="text" className="desc" placeholder="Start writing your blog here" minLength={100} maxLength={10000} required onChange={(event) => setContent(event.target.value)}></textarea><br></br><br></br>
-            <div style={{backgroundColor: 'white'}}>
+            <div className="upload" style={{backgroundColor: 'white'}}>
                 <p>UPLOAD IMAGE FOR THUMBNAIL:</p>
                 <input name="image" type="file" accept="image/*" required onChange={handleImage}/>
             </div><br></br>
