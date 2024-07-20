@@ -22,24 +22,41 @@ body{
   }
 }
 
-
 /* SIGN IN/UP PAGE CSS */
 
 form{
   text-align: center;
   margin: auto;
+  border: 1px solid black;
+  border-radius: 40px;
   width: 300px;
   padding: 40px 40px;
   margin-top: 50px;
-  background-color: whitesmoke;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 form > input{
   border: none;
+  border-bottom: 1px solid black;
+  font-size: 16px;
+}
+
+form > input:focus{
+  outline: none;
+  border-bottom: 1px solid black;
 }
 
 form > input, form > button{
   padding: 10px;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 440px){
+  form{
+    border: none;
+  }
 }
 
 /* NAVBAR CSS */
@@ -117,8 +134,7 @@ header{
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   width: 650px;
-  margin-bottom: 80px;
-  margin: auto;
+  margin: 0 auto 80px;
 }
 
 .content > .box{
@@ -140,7 +156,7 @@ header{
 }
 
 .content > .box p{
-  color: rgb(153, 255, 0);
+  color: black;
 }
 
 @media only screen and (max-width: 716px){
@@ -170,24 +186,42 @@ header{
 /* CREATE POST PAGE CSS */
 .post{
   margin-top: 140px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 .post > input, .post > select{
   height: 25px;
   width: 250px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 16px;
 }
 
 .post > .desc{
   height: 200px;
-  width: 275px;
+  width: 260px;
   resize: none;
-  border: none;
+  padding: 20px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 .post > .option{
   height: 50px;
   width: 275px;
-  border: none;
+  border-bottom: 1px solid black;
+}
+
+@media only screen and (max-width: 440px){
+  .post{
+    border: none;
+  }
 }
 
 /* ACCOUNT PAGE CSS */
@@ -241,7 +275,7 @@ header{
 }
 
 .blogDetail > p{
-  color: rgb(153, 255, 0);
+  color: black;
 }
 
 .blogDetail > .p{
