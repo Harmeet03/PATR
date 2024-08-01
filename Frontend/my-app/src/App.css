@@ -9,7 +9,7 @@ body{
   height: 80px;
   border-radius: 50%;
   margin: 100px auto 0;
-  border-top: 8px solid rgb(153, 255, 0);
+  border-top: 8px solid red;
   animation: spin 1s linear infinite;
 }
 
@@ -69,7 +69,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   background-color: black;
-  color: rgb(153, 255, 0);
+  color: red;
 }
 
 nav > div > h1{
@@ -88,7 +88,7 @@ nav > .list > #list > div{
 }
 
 nav > .list > #list a{
-  color: rgb(153, 255, 0);
+  color: red;
   text-decoration: none;
 }
 
@@ -150,7 +150,7 @@ header{
 }
 
 .content > .box h3{
-  color: rgb(153, 255, 0);
+  color: red;
 }
 
 .content > .box b{
@@ -275,7 +275,7 @@ header{
 }
 
 .blogDetail > h2{
-  color: rgb(153, 255, 0);
+  color: red;
 }
 
 .blogDetail > p > b{
