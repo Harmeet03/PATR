@@ -10,6 +10,7 @@ const Home = () => {
     let username = localStorage.getItem('Username');
     const [contents, setContent] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         fetchContent();
@@ -30,7 +31,8 @@ const Home = () => {
         }
         catch(error){
             console.log('Error while fetching from 4040 port.', error);
-            setLoading(true);
+            setLoading(false);
+            setError(true);
         }
     }
 
@@ -42,6 +44,15 @@ const Home = () => {
                 <h1> Welcome, {(username ? <span>{username}</span> : <span> Sir </span>)} </h1>
             </header>
             <Loader/>
+            </>
+        )
+    }
+
+    if(error){
+        return (
+            <>
+            <Nav/>
+            <h3 style={{textAlign: 'center', marginTop: '300px'}}> Error while fetching data from server. </h3>
             </>
         )
     }
