@@ -87,7 +87,10 @@ const Blog_Detail = () => {
         <div className="blogDetail">
             <h1> {blog.heading} </h1>
             <h2> {blog.options} </h2>
-            <p> <b>Posted By - </b>{blog.username} </p>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <p> <b>Posted By - </b>{blog.username} </p>
+                <p> <b>Posted At - </b>{blog.createdAt.split('T')[0]} </p>
+            </div>
             <img src={blog.image}></img>
             <p className="p"> {blog.content} </p>
         </div>
