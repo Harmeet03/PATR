@@ -23,7 +23,6 @@ const Account = () => {
             if(response.ok){
                 const userData = await response.json();
                 setData(userData);
-                console.log(username);
             }
             else{
                 console.log('Error during connection. ');
