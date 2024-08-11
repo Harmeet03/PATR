@@ -7,6 +7,7 @@ import Loader from './Loader';
 
 const Account = () => {
     const username = localStorage.getItem('Username');
+    const pfp = localStorage.getItem('Profile_Pic');
     const [user, setData] = useState('');
     const Link = useNavigate();
 

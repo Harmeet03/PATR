@@ -13,6 +13,16 @@ const OTP = () => {
     const [otp, setOTP] = useState('');
     const [otpSent, setOtpSent] = useState(false);
     let login = localStorage.getItem('Login');
+
+    const pfp1 = 'https://api.multiavatar.com/stefan.svg';
+    const pfp2 = 'https://api.multiavatar.com/kathrin.svg';
+    const pfp3 = 'https://api.multiavatar.com/zoe.svg';
+    const Pfp = [pfp1, pfp2, pfp3];
+
+    const randomPfp = (arr) => {
+        const randomIndex = Math.floor(Math.random() * arr.length);
+        return arr[randomIndex];
+    }
     
     const handleSendOTP = async () => {
       try {
@@ -44,6 +54,7 @@ const OTP = () => {
             setOtpSent(true);
 
             let name = localStorage.setItem('Username', username);
+            let pfp = localStorage.setItem('Profile_Pic', randomPfp(Pfp));
             console.log(username);
 
             let server_error = document.getElementById("server_error");
