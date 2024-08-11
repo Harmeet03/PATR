@@ -58,7 +58,7 @@ const Account = () => {
         </Helmet>
         <Nav username = {username}/>
         <div className="account">
-            <img src=""></img><br></br>
+            <img src={pfp}/><br></br>
             <h2> {user.name} </h2>
             <h3> {user.email} </h3><br></br>
             <a onClick={() => {localStorage.removeItem('Login'); localStorage.removeItem('Username'); Link('/signin')}}> Sign Out? </a>
