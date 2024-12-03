@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css'
 import { useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet';
-import Nav from './Nav';
+import bg from './Images/image.png'
 
 const Create_Post = () => {
     let username = localStorage.getItem('Username');
@@ -75,32 +75,37 @@ const Create_Post = () => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </Helmet>
-        <Nav/>
-        <form className="post" onSubmit={handlePost}>
-            <h2> Create Post </h2>
-            <select className="option" name="options" required onChange={(event) => setOption(event.target.value)}>
-                <option value=''>Select Category</option>
-                <option>Travel</option>
-                <option>Technology</option>
-                <option>Health</option>
-                <option>Food</option>
-                <option>Lifestyle</option>
-                <option>Fashion</option>
-                <option>Music</option>
-                <option>Social Media</option>
-            </select><br></br><br></br>
-            <input name="heading" type="text" placeholder="Write your blog's heading" minLength={1} maxLength={80} required onChange={(event) => setHeading(event.target.value)}></input><br></br><br></br>
-            <textarea name="content" type="text" className="desc" placeholder="Start writing your blog here" minLength={100} maxLength={10000} required onChange={(event) => setContent(event.target.value)}></textarea><br></br><br></br>
-            <div className="upload" style={{backgroundColor: 'white'}}>
-                <p>UPLOAD IMAGE FOR THUMBNAIL:</p>
-                <input name="image" type="file" accept="image/*" required onChange={handleImage}/>
-            </div><br></br>
-            <p className="uname"> Username: <span name="username"> {username} </span></p>
-            {/* <input type="file"></input> */}
-            <button type="submit">Publish Post</button>
-            <p id="success" style={{display: 'none'}}> Posted. :) </p>
-            <p id="failed" style={{display: 'none'}}> Connection Problem :( </p>
-        </form>
+        <div className="create">
+            <div className="left">
+                <img src={bg}/>
+            </div>
+            <form className="post" onSubmit={handlePost}>
+                <span style={{textAlign: 'left', cursor: 'pointer'}} onClick={() => {Link('/')}}> Back </span>
+                <h2> Create Post </h2>
+                <select className="option" name="options" required onChange={(event) => setOption(event.target.value)}>
+                    <option value=''>Select Category</option>
+                    <option>Travel</option>
+                    <option>Technology</option>
+                    <option>Health</option>
+                    <option>Food</option>
+                    <option>Lifestyle</option>
+                    <option>Fashion</option>
+                    <option>Music</option>
+                    <option>Social Media</option>
+                </select>
+                <input name="heading" type="text" placeholder="Write your blog's heading" minLength={1} maxLength={80} required onChange={(event) => setHeading(event.target.value)}></input>
+                <textarea name="content" type="text" className="desc" placeholder="Start writing your blog here" minLength={100} maxLength={10000} required onChange={(event) => setContent(event.target.value)}></textarea>
+                <div className="upload" style={{backgroundColor: 'rgba(197,208,230, 0.221)', borderRadius: '10px', padding: '0px 0px 10px 0px'}}>
+                    <p>UPLOAD IMAGE FOR THUMBNAIL:</p>
+                    <input name="image" type="file" accept="image/*" required onChange={handleImage}/>
+                </div>
+                <p className="uname"> Username: <span name="username"> {username} </span></p>
+                {/* <input type="file"></input> */}
+                <button type="submit">Publish Post</button>
+                <p id="success" style={{display: 'none'}}> Posted. :) </p>
+                <p id="failed" style={{display: 'none'}}> Connection Problem :( </p>
+            </form>
+        </div>
         </>
     );
 }

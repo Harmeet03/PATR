@@ -66,7 +66,7 @@ const OTP = () => {
             <img src={image}/>
           </div>
           <form onSubmit={handleSubmit}>
-          <span style={{textAlign: 'left', cursor: 'pointer'}} onClick={() => {navigate('/')}}> Back </span>
+            <span style={{textAlign: 'left', cursor: 'pointer'}} onClick={() => {navigate('/')}}> Back </span>
             <h1> Sign Up: </h1>
             <input required id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input>
             <input required id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
