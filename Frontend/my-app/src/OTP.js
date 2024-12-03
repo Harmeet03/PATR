@@ -1,9 +1,7 @@
-// I HAVE ALREADY CREATED MY ACCOUNT SO WE FONT NEED TO MAKE ANOTHER ONE
-// Email: hsdhanjal2003@gmail.com
-
 import React, { useState } from "react";
 import './App.css'
 import { useNavigate } from "react-router-dom";
+import image from "./Images/image1.png"
 
 const OTP = () => {
     const navigate = useNavigate();
@@ -152,25 +150,25 @@ const OTP = () => {
         </head>
         <div className="si">
           <div className="left">
-            <form onSubmit={handleLogin}>
-              <h2> Sign In: </h2>
-              <input id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input><br></br><br></br>
-              <input id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input><br></br><br></br>
-              <a style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => {navigate(`/signup`)}}> Sign Up? </a>
-              <br></br><br></br><br></br>
-              <button id="button" type="submit"> Proceed </button>
-              <p id="user_error" style={{display: "none"}}> Invalid Email or Username. </p>
-              <p id="server_error" style={{display: "none"}}> Server Error. </p>
-              
-              <h5 style={{display: 'none'}} id="otpm"> An OTP is sent on this email </h5>
-              <h2 style={{display: 'none'}} id="otp"> OTP: </h2>
-              <input style={{display: 'none'}} id="otpi" type="text" name="otp" placeholder="Enter OTP" onChange={(event) => setOTP(event.target.value)}></input>
-              <br></br><br></br>
-              <button style={{display: 'none'}} id="otpb" type="submit"> Sign In </button>
-              <p id="otp_error" style={{display: "none"}}> Invalid OTP </p>
-              <p id="otp_success" style={{display: "none"}}> Verified. Enjoy :) </p>
-            </form>
+            <img src={image}/>
           </div>
+          <form onSubmit={handleLogin}>
+            <span style={{textAlign: 'left', cursor: 'pointer'}} onClick={() => {navigate('/')}}> Back </span>
+            <h1> Sign In: </h1>
+            <input id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input>
+            <input id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
+            <a style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => {navigate(`/signup`)}}> Sign Up? </a>
+            <button id="button" type="submit"> Proceed </button>
+            <p id="user_error" style={{display: "none"}}> Invalid Email or Username. </p>
+            <p id="server_error" style={{display: "none"}}> Server Error. </p>
+            
+            <h5 style={{display: 'none'}} id="otpm"> An OTP is sent on this email </h5>
+            <h2 style={{display: 'none'}} id="otp"> OTP: </h2>
+            <input style={{display: 'none'}} id="otpi" type="text" name="otp" placeholder="Enter OTP" onChange={(event) => setOTP(event.target.value)}></input>
+            <button style={{display: 'none'}} id="otpb" type="submit"> Sign In </button>
+            <p id="otp_error" style={{display: "none"}}> Invalid OTP </p>
+            <p id="otp_success" style={{display: "none"}}> Verified. Enjoy :) </p>
+          </form>
         </div>
         </>
     )

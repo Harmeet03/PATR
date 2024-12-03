@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
     const Link = useNavigate();
-    return(
+  return(
         <>
-        <footer style={{backgroundColor: 'black', color: 'white', margin: 0, padding: '20px 0px', textAlign: 'center'}}>
+        <footer style={{backgroundColor: 'rgb(32,20,20)', color: 'white', margin: 0, padding: '20px 0px', textAlign: 'center'}}>
             <div className="left">
-                <h1 style={{color: 'rgb(153, 255, 0)'}}> PATR </h1>
+                <h1 style={{color: 'white'}}> PATR </h1>
             </div>
             <div className="right">
                 <p> This website is for demonstration of my skills purpose only. No copyright intended </p>

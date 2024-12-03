@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './App.css'
 import { useNavigate } from "react-router-dom";
+import image from "./Images/image1.png"
 
 const OTP = () => {
     const navigate = useNavigate();
@@ -62,20 +63,21 @@ const OTP = () => {
         </head>
         <div className="si">
           <div className="left">
-            <form onSubmit={handleSubmit}>
-              <h2> Sign Up: </h2>
-              <input required id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input><br></br><br></br>
-              <input required id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input><br></br><br></br>
-              <input required id="name" type="text" name="name" placeholder="Enter Name" onChange={(event) => setName(event.target.value)}></input><br></br><br></br>
-              <a style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => {navigate(`/signin`)}}> Sign In? </a>
-              <br></br><br></br><br></br>
-              <button id="button" type="submit"> Sign Up </button>
-              <p id="created" style={{display: "none"}}> Account Created. </p>
-              <p id="user_error" style={{display: "none"}}> Email or Username already exists. </p>
-              <p id="server_error" style={{display: "none"}}> Server Error. </p>
-              <br></br><br></br>
-            </form>
+            <img src={image}/>
           </div>
+          <form onSubmit={handleSubmit}>
+          <span style={{textAlign: 'left', cursor: 'pointer'}} onClick={() => {navigate('/')}}> Back </span>
+            <h1> Sign Up: </h1>
+            <input required id="email" type="text" name="email" placeholder="Enter Email" onChange={(event) => setEmail(event.target.value)}></input>
+            <input required id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
+            <input required id="name" type="text" name="name" placeholder="Enter Name" onChange={(event) => setName(event.target.value)}></input>
+            <a style={{textDecoration: 'underline', cursor: 'pointer'}} onClick={() => {navigate(`/signin`)}}> Sign In? </a>
+            <button id="button" type="submit"> Sign Up </button>
+            <p id="created" style={{display: "none"}}> Account Created. </p>
+            <p id="user_error" style={{display: "none"}}> Email or Username already exists. </p>
+            <p id="server_error" style={{display: "none"}}> Server Error. </p>
+            <br></br><br></br>
+          </form>
         </div>
         </>
     )
