@@ -104,7 +104,7 @@ const Blog_Detail = () => {
                             <img src="#"></img>
                         </div>
                         <div>
-                            <p> <b>From: {comment.username}</b>  </p>
+                            <p> <b> {comment.username} </b>  </p>
                             <p> {comment.comment} </p>
                         </div>
                     </div>
