@@ -13,6 +13,7 @@ const OTP = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
+        // const response = await fetch('http://localhost:4040/signup', {
         const response = await fetch('https://patr-202b.onrender.com/signup', {
           method: 'POST',
           headers: {

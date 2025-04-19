@@ -4,6 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import Nav from './Nav';
 import Loader from './Loader';
+import Avatar from 'boring-avatars';
+
 
 const Blog_Detail = () => {
     const navigate = useNavigate();
@@ -19,6 +21,7 @@ const Blog_Detail = () => {
 
     const fetchBlogDetail = async () => {
         try{
+            // const response = await fetch(`http://localhost:4040/postContent/${id}`);
             const response = await fetch(`https://patr-202b.onrender.com/postContent/${id}`);
             if(response.ok){
                 const blogDetail = await response.json();
@@ -38,6 +41,7 @@ const Blog_Detail = () => {
     const PostBlogComment = async (event) => {
         event.preventDefault();
         try{
+            // const response = await fetch(`http://localhost:4040/postContent/${id}`, {
             const response = await fetch(`https://patr-202b.onrender.com/postContent/${id}`, {
                 method: 'POST',
                 headers: {
@@ -101,7 +105,7 @@ const Blog_Detail = () => {
                 storeComments.map((comment, index) => (
                     <div id="content" key={index}>
                         <div>
-                            <img src="#"></img>
+                            <Avatar className="img" size={40} name={username} variant="bauhaus"/>
                         </div>
                         <div>
                             <p> <b> {comment.username} </b>  </p>
@@ -115,7 +119,7 @@ const Blog_Detail = () => {
         {
             username != null ? (
                 <form className="addComment" onSubmit={PostBlogComment}>
-                    <input required name="comments" type="text" placeholder="Like it? Write a comment to tell them." onChange={(event) => setComment(event.target.value)}></input>
+                    <input required name="comments" style={{backgroundColor: 'white', border: '2px solid black', color: 'black'}} type="text" placeholder="Like it? Write a comment to tell them." onChange={(event) => setComment(event.target.value)}></input>
                     <button type="submit"> Post </button>
                 </form>
             ) 

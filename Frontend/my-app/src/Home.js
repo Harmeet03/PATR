@@ -18,6 +18,7 @@ const Home = () => {
 
     const fetchContent = async () => {
         try{
+            // const response = await fetch(`http://localhost:4040/postContent`);
             const response = await fetch(`https://patr-202b.onrender.com/postContent`);
             if(response.ok){
                 const blog_content = await response.json();
@@ -41,7 +42,7 @@ const Home = () => {
             <>
             <Nav/>
             <header>
-                <h1> Welcome, {(username ? <span>{username}</span> : <span> Sir </span>)} </h1>
+                <h1> Welcome, {(username ? <span>{username}</span> : <span> mate </span>)} </h1>
             </header>
             <Loader/>
             </>
@@ -71,7 +72,7 @@ const Home = () => {
         </Helmet>
         <Nav/>
         <header>
-            <h1> Welcome, {username ? <span>{username}</span> : <span> Sir </span>} </h1>
+            <h1> Welcome {username ? <span>{username}</span> : <span> mate </span>} </h1>
         </header>
         <div className="content">
             {

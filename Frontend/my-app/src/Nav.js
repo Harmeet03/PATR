@@ -16,13 +16,14 @@ const Nav = ({username}) => {
             <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Oswald:wght@300&display=swap" rel="stylesheet"></link>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         </Helmet>
         <nav>
             <div>
                 <h1> PATR </h1>
             </div>
             <div className="list">
-                <div className="toggle" onClick={() => {
+                {/* <div className="toggle" onClick={() => {
                     let list = document.getElementById('list');
                     if(list.style.display == 'flex'){
                         list.style.display = 'none';
@@ -34,19 +35,19 @@ const Nav = ({username}) => {
                     <span>____</span>
                     <span>____</span>
                     <span>____</span>
-                </div>
+                </div> */}
                 <div id="list">
-                    <a onClick={() => {Link(`/`)}}> Home </a>
+                    <p onClick={() => {Link(`/`)}} className='material-icons'> home </p>
                     {
                         localStorage.getItem('Login', 'true') ? (
                             <div>
-                                <a onClick={() => {Link(`/create_post`)}}> Create Post </a>
-                                <a  onClick={() => {Link(`/user_account/${username}`)}}> Account </a>
-                                {/* <a href='/signin' onClick={() => {localStorage.removeItem('Login')}}> Sign Out </a> */}
+                                <p onClick={() => {Link(`/create_post`)}} className='material-icons'> create </p>
+                                <p onClick={() => {Link(`/user_account/${username}`)}} className='material-icons'> person </p>
+                                <p onClick={() => {{localStorage.removeItem('Login')}; {localStorage.removeItem('Username')}; Link('/signin')}} style={{cursor: 'pointer'}} className='material-icons'> exit_to_app </p>
                             </div>
                         ) 
                         : (
-                            <a onClick={() => {Link(`/signin`)}}> Sign In </a>
+                            <p onClick={() => {Link('/signin')}} style={{cursor: 'pointer'}} className='material-icons'> vpn_key </p>
                         )
                     }
                 </div>

@@ -148,20 +148,22 @@ nav{
   display: flex;
   margin: auto;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgb(32,20,20);
   color: white;
 }
 
 nav > div > h1{
-  font-size: 40px;
+  font-size: 30px;
 }
 
 nav > .list > #list{
   display: flex;
   text-align: center;
   gap: 20px;
+  align-items: center;
+  cursor: pointer;
 }
 
 nav > .list > #list > div{
@@ -169,28 +171,25 @@ nav > .list > #list > div{
   gap: 20px;
 }
 
-nav > .list > #list a{
+nav > .list > #list p{
   color: white;
   text-decoration: none;
+  font-size: 30px;
 }
 
 nav > .list > #list a:hover{
   cursor: pointer;
 }
 
-nav > .list > .toggle{
-  display: none;
-}
-
 @media only screen and (max-width: 509px){
-  nav > .list > .toggle{
+  /* nav > .list > .toggle{
     display: flex;
     flex-direction: column;
     gap: 0px;
     padding: 0px 40px;
-  }
+  } */
 
-  nav > .list > #list{
+  /* nav > .list > #list{
     display: none;
     flex-direction: column;
     padding: 40px 0px;
@@ -198,7 +197,7 @@ nav > .list > .toggle{
 
   nav > .list > #list > div{
     flex-direction: column;
-  }
+  } */
 }
 
 /* BLOG HOME PAGE CSS */
@@ -221,8 +220,7 @@ header{
 
 .content > .box{
   padding: 10px 25px;
-  border-radius: 20px;
-  box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
 }
 
 .content > .box .thumbnail{
@@ -276,17 +274,26 @@ header{
 /* ACCOUNT PAGE CSS */
 .account{
   text-align: center;
-  margin-top: 200px;
+  border: 2px solid black;
+  padding: 40px 0px 20px 0px;
+  width: 80vw;
+  margin: 25vh auto auto auto;
+  background-image: url('https://sdmntprwestus.oaiusercontent.com/files/00000000-f178-6230-a747-b4310c469db7/raw?se=2025-04-19T19%3A14%3A53Z&sp=r&sv=2024-08-04&sr=b&scid=bd8f249e-7fb5-501d-8b89-38419edcbf4f&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-19T09%3A55%3A28Z&ske=2025-04-20T09%3A55%3A28Z&sks=b&skv=2024-08-04&sig=kXtc7frVYDBrZes4N2zwO51dQgUQur87NhUJAXuUfkU%3D');
 }
 
-.account > img{
+.account > h3{
+  padding-bottom: 40px;
+  border-bottom: 2px solid black;
+}
+
+.account > .img{
   width: 200px;
   height: 200px;
   border: solid;
   border-radius: 100px;
 }
 
-.myBlog{
+/* .myBlog{
   padding: 100px 40px 20px;
 }
 
@@ -300,7 +307,7 @@ header{
 .myBlog > div > button{
   height: 40px;
   width: 80px;
-}
+} */
 
 /* BLOG DETAIL PAGE CSS */
 
@@ -309,6 +316,7 @@ header{
   margin-top: 140px;
   padding: 10px 20px;
   width: 800px;
+  border: 2px solid black;
 }
 
 .blogDetail > h1{
@@ -346,6 +354,7 @@ header{
   margin-top: 10px;
   padding: 10px 20px;
   width: 800px;
+  border: 2px solid black;
 }
 
 .comments > #content{
@@ -355,7 +364,7 @@ header{
 }
 
 
-.comments > #content > div > img{
+.comments > #content > div > .img{
   border: 1px solid black;
   border-radius: 20px;
   width: 40px;
@@ -367,7 +376,6 @@ header{
   padding: 20px 20px;
   width: 800px;
   margin: auto;
-  border: none;
   display: flex;
   flex-direction: row;
   justify-content: center;

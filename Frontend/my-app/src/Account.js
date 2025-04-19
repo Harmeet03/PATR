@@ -4,10 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 import Nav from './Nav';
 import Loader from './Loader';
+import Avatar from 'boring-avatars';
 
 const Account = () => {
     const username = localStorage.getItem('Username');
-    const pfp = localStorage.getItem('Profile_Pic');
     const [user, setData] = useState('');
     const Link = useNavigate();
 
@@ -19,6 +19,7 @@ const Account = () => {
 
     const fetchUserData = async (username) => {
         try{
+            // const response = await fetch(`http://localhost:4040/otp/${username}`);
             const response = await fetch(`https://patr-202b.onrender.com/otp/${username}`);
             if(response.ok){
                 const userData = await response.json();
@@ -58,19 +59,19 @@ const Account = () => {
         </Helmet>
         <Nav username = {username}/>
         <div className="account">
-            <img src={pfp}/><br></br>
+            <Avatar className="img" size={40} name={username} variant="beam"/>
             <h2> {user.name} </h2>
-            <h3> {user.email} </h3><br></br>
-            <a onClick={() => {localStorage.removeItem('Login'); localStorage.removeItem('Username'); Link('/signin')}}> Sign Out? </a>
+            <h3> {user.email} </h3>
+            <a onClick={() => {localStorage.removeItem('Login'); localStorage.removeItem('Username'); Link('/signin')}} style={{cursor: 'pointer'}}> Sign Out? </a>
 
-            <div className="myBlog" id="myBlog">
+            {/* <div className="myBlog" id="myBlog">
                 <h1> My Blogs: </h1>
                 <div>
                     <h3> NAME OF THE HEADING OF BLOG </h3>
                     <button> Edit </button>
                     <button> Delete </button>
                 </div>
-            </div>
+            </div> */}
         </div>
         </>
     );
