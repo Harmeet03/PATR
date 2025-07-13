@@ -105,7 +105,7 @@ const Blog_Detail = () => {
                 storeComments.map((comment, index) => (
                     <div id="content" key={index}>
                         <div>
-                            <Avatar className="img" size={40} name={username} variant="bauhaus"/>
+                            <Avatar className="img" size={40} name='random' variant="bauhaus"/>
                         </div>
                         <div>
                             <p> <b> {comment.username} </b>  </p>
