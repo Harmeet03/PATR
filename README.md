@@ -24,7 +24,7 @@ Install dependencies: `npm install`
 Run development server: `npm run dev`  
 Open `http://localhost:5173` in your browser
 
-## PREVIEW
+## 🎞️ PREVIEW
 <img width="750" height="375" alt="PATR-C0UMF-Jf" src="https://github.com/user-attachments/assets/fb1caef0-6366-44bb-96dc-beaf109035ae" /><br/>
 https://patr.netlify.app/
 
